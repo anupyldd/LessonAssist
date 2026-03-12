@@ -1,24 +1,20 @@
 
-> Открыть эту страницу в [https://anupyldd.github.io/lessonassist/](https://anupyldd.github.io/lessonassist/)
+## Using the extension
 
-## Использовать это расширение
+* open [https://minecraft.makecode.com/](https://minecraft.makecode.com/)
+* select **New Project**
+* select **Extensions** in the menu on the left
+* search **https://github.com/anupyldd/lessonassist** and import
 
-Этот репозиторий может быть добавлен в MakeCode как **расширение**.
+## Editing this project
 
-* открыть [https://minecraft.makecode.com/](https://minecraft.makecode.com/)
-* нажмите на **Новый проект**
-* нажмите **Расширения** в меню-шестерёнке
-* найдите **https://github.com/anupyldd/lessonassist** и импортируйте
+* open [https://minecraft.makecode.com/](https://minecraft.makecode.com/)
+* select **Import**, then **Import URL**
+* paste **https://github.com/anupyldd/lessonassist** and import
 
-## Править этот проект
-
-Редактировать этот репозиторий в MakeCode.
-
-* открыть [https://minecraft.makecode.com/](https://minecraft.makecode.com/)
-* нажмите на **Импорт**, затем **Импорт URL**
-* вставьте **https://github.com/anupyldd/lessonassist** и нажмите Импорт
-
-#### Метаданные (используются для поиска, рендеринга)
+#### Metadata
 
 * for PXT/minecraft
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+```
+lessonassist=github:anupyldd/lessonassist
+```
