@@ -16,7 +16,7 @@ namespace agent {
      * @param countdown length of the pause in seconds before executing the code
      */
     //% block
-    export function begin(countdown: number = 3): void {
+    export function begin(countdown: number = 0): void {
         player.onChat("join", () => {
             agent.join()
         })
