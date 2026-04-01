@@ -4,7 +4,7 @@ namespace lesson {
      * Teleports the agent to player's position facing the same direction as the player
      */
     //% block
-    export function call_agent(): void {
+    export function callAgent(): void {
         agent.teleport(
             player.position(),
             positions.toCompassDirection(player.getOrientation())
@@ -18,7 +18,7 @@ namespace lesson {
      * Blue - positive Z
      */
     //% block
-    export function make_coord_axes(): void {
+    export function makeCoordAxes(): void {
         let off = 2
         let x_axis = RED_CONCRETE
         let y_axis = GREEN_CONCRETE
@@ -43,7 +43,7 @@ namespace lesson {
      * Tell in what direction the player is currently looking, as well as other directions relative to it
      */
     //% block
-    export function tell_dir(): void {
+    export function tellDir(): void {
         let po = player.getOrientation()
         let pco = positions.toCompassDirection(po)
         
