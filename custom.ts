@@ -4,11 +4,20 @@ namespace lesson {
      * Teleports the agent to player's position facing the same direction as the player
      */
     //% block
-    export function callAgent(): void {
+    export function agent_call(): void {
         agent.teleport(
             player.position(),
             positions.toCompassDirection(player.getOrientation())
         )
+    };
+    
+    /**
+     * Set the direction the agent is facing
+     * @param direction CompassDirection in which the agent will look
+     */
+    //% block
+    export function agent_face(direction: CompassDirection): void {
+        agent.teleport(agent.getPosition(), direction)
     };
     
     /**
@@ -18,7 +27,7 @@ namespace lesson {
      * Blue - positive Z
      */
     //% block
-    export function makeCoordAxes(): void {
+    export function make_coord_axes(): void {
         let off = 2
         let x_axis = RED_CONCRETE
         let y_axis = GREEN_CONCRETE
@@ -43,7 +52,7 @@ namespace lesson {
      * Tell in what direction the player is currently looking, as well as other directions relative to it
      */
     //% block
-    export function tellDir(): void {
+    export function tell_dir(): void {
         let po = player.getOrientation()
         let pco = positions.toCompassDirection(po)
         
@@ -90,7 +99,7 @@ namespace lesson {
             "UP        : " + up + nl + 
             "DOWN     : "  + dn
         )
-    }
+    };
     
     /**
      * Registers helper chat commands and starts the countdown
@@ -99,7 +108,7 @@ namespace lesson {
     //% block
     export function begin(countdown: number = 0): void {
         player.onChat("agent", () => {
-            lesson.call_agent()
+            lesson.agent_face()
         })
 
         player.onChat("axes", () => {
@@ -117,5 +126,5 @@ namespace lesson {
             loops.pause(pause)
         }
         player.say("Start!")
-    }
+    };
 }
