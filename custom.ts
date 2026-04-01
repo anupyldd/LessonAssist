@@ -4,7 +4,7 @@ namespace lesson {
      * Teleports the agent to player's position facing the same direction as the player
      */
     //% block
-    export function agent_call(): void {
+    export function agentCall(): void {
         agent.teleport(
             player.position(),
             positions.toCompassDirection(player.getOrientation())
@@ -16,7 +16,7 @@ namespace lesson {
      * @param direction CompassDirection in which the agent will look
      */
     //% block
-    export function agent_face(direction: CompassDirection): void {
+    export function agentFace(direction: CompassDirection): void {
         agent.teleport(agent.getPosition(), direction)
     };
     
@@ -27,7 +27,7 @@ namespace lesson {
      * Blue - positive Z
      */
     //% block
-    export function make_coord_axes(): void {
+    export function dirAxes(): void {
         let off = 2
         let x_axis = RED_CONCRETE
         let y_axis = GREEN_CONCRETE
@@ -48,11 +48,13 @@ namespace lesson {
         )
     };
     
+    
+    
     /**
      * Tell in what direction the player is currently looking, as well as other directions relative to it
      */
     //% block
-    export function tell_dir(): void {
+    export function dirLook(): void {
         let po = player.getOrientation()
         let pco = positions.toCompassDirection(po)
         
@@ -106,17 +108,45 @@ namespace lesson {
      * @param countdown length of the pause in seconds before executing the code
      */
     //% block
+    export function dirHint(): void {
+        let hint = 
+        `
+Directions:
+        /\\ 
+         | Y: UP/DOWN
+         |
+         |
+         |      
+         @----------->
+        /      X: EAST/WEST
+       /
+      /
+     /  Z: FORWARD/BACK
+   V
+        `
+        player.say(hint)
+    };
+    
+    /**
+     * Registers helper chat commands and starts the countdown
+     * @param countdown length of the pause in seconds before executing the code
+     */
+    //% block
     export function begin(countdown: number = 0): void {
-        player.onChat("agent", () => {
-            lesson.agent_face()
+        player.onChat("agent.call", () => {
+            lesson.agentCall()
         })
 
-        player.onChat("axes", () => {
-            lesson.make_coord_axes()
+        player.onChat("dir.axes", () => {
+            lesson.dirAxes()
         })
         
-        player.onChat("dir", () => {
-            lesson.tell_dir()
+        player.onChat("dir.look", () => {
+            lesson.dirLook()
+        })
+        
+        player.onChat("dir.hint", () => {
+            lesson.dirHint()
         })
 
         // countdown after which user code execution starts
